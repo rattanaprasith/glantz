@@ -72,16 +72,30 @@ class CGlantza implements ISingleton {
       die('404. Page is not found.');
     }
 
-    $this->data['debug']  = "REQUEST_URI - {$_SERVER['REQUEST_URI']}\n";
-    $this->data['debug'] .= "SCRIPT_NAME - {$_SERVER['SCRIPT_NAME']}\n";
   }
   
   /**
     * Theme Engine Render, renders the views using the selected theme.
     */
   public function ThemeEngineRender() {
-    echo "<h1>I'm CGlantz::ThemeEngineRender</h1><p>You are most welcome. Nothing to render at the moment</p>";
-    echo "<h2>The content of the config array:</h2><pre>", print_r($this->config, true) . "</pre>";
-    echo "<h2>The content of the data array:</h2><pre>", print_r($this->data, true) . "</pre>";
-    echo "<h2>The content of the request array:</h2><pre>", print_r($this->request, true) . "</pre>";
+    // Get the paths and settings for the theme
+    $themeName    = $this->config['theme']['name'];
+    $themePath    = GLANTZ_INSTALL_PATH . "/themes/{$themeName}";
+    $themeUrl	 = $this->request->base_url . "themes/{$themeName}";
+    
+    // Add stylesheet path to the $ly->data array
+    $this->data['stylesheet'] = "{$themeUrl}/style.css";
+
+    // Include the global functions.php and the functions.php that are part of the theme
+    $gl = &$this;
+    include(GLANTZ_INSTALL_PATH . '/themes/functions.php');
+    $functionsPath = "{$themePath}/functions.php";
+    if(is_file($functionsPath)) {
+      include $functionsPath;
+    }
+
+    // Extract $ly->data to own variables and handover to the template file
+    extract($this->data);      
+    include("{$themePath}/default.tpl.php");
+  }
   }

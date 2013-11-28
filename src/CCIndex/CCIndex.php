@@ -12,6 +12,7 @@ class CCIndex implements IController {
    public function Index() {   
       global $gl;
       $gl->data['title'] = "The Index Controller";
+      $gl->data['main'] = "<h1>The Index Controller</h1>";
    }
 
 }

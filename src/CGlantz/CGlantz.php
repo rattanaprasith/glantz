@@ -4,7 +4,7 @@
 *
 * @package GlantzCore
 */
-class CGlantza implements ISingleton {
+class CGlantz implements ISingleton {
 
    private static $instance = null;
 
