@@ -1,0 +1,26 @@
+<?php
+/**
+* Helpers for the template file.
+*/
+$gl->data['header'] = '<h1>Header: Glantz</h1>';
+$gl->data['main']   = '<p>Main: Now with a theme engine, Not much more to report for now.</p>';
+$gl->data['footer'] = '<p>Footer: &copy; Glantz by Rattana</p>';
+
+
+/**
+* Print debuginformation from the framework.
+*/
+function get_debug() {
+  $gl = CGlantz::Instance();
+  $html = "<h2>Debuginformation</h2><hr><p>The content of the config array:</p><pre>" . htmlentities(print_r($gl->config, true)) . "</pre>";
+  $html .= "<hr><p>The content of the data array:</p><pre>" . htmlentities(print_r($gl->data, true)) . "</pre>";
+  $html .= "<hr><p>The content of the request array:</p><pre>" . htmlentities(print_r($gl->request, true)) . "</pre>";
+  return $html;
+}
+
+/**
+* Create a url by prepending the base_url.
+*/
+function base_url($url) {
+  return CLydia::Instance()->request->base_url . trim($url, '/');
+}
