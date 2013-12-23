@@ -7,7 +7,7 @@ define('GLANTZ_SITE_PATH', GLANTZ_INSTALL_PATH . '/site');
 
 require(GLANTZ_INSTALL_PATH.'/src/CGlantz/bootstrap.php');
 
-$glantz = CGlantz::Instance();
+$gl = CGlantz::Instance();
 
 //
 // PHASE: FRONTCONTROLLER ROUTE
