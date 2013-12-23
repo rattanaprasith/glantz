@@ -5,7 +5,7 @@
 define('GLANTZ_INSTALL_PATH', dirname(__FILE__));
 define('GLANTZ_SITE_PATH', GLANTZ_INSTALL_PATH . '/site');
 
-require(GLANTZ_INSTALL_PATH.'/src/CGlantz/bootstrap.php');
+require(GLANTZ_INSTALL_PATH.'/src/bootstrap.php');
 
 $gl = CGlantz::Instance();
 
