@@ -18,7 +18,7 @@ function get_debug() {
   // Get the debug output
  $html = null;
   if(isset($gl->config['debug']['db-num-queries']) && $gl->config['debug']['db-num-queries'] && isset($gl->db)) {
-    $flash = $gl->session->GetFlash('database_numQueries');
+    $flash = $mo->session->GetFlash('database_numQueries');
     $flash = $flash ? "$flash + " : null;
     $html .= "<p>Database made $flash" . $gl->db->GetNumQueries() . " queries.</p>";
   }

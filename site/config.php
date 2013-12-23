@@ -11,6 +11,21 @@ error_reporting(-1);
 ini_set('display_errors', 1);
 
 /**
+ * Set what to show as debug or developer information in the get_debug() theme helper.
+ */
+$gl->config['debug']['glantz'] = false;
+$gl->config['debug']['session'] = false;
+$gl->config['debug']['timer'] = true;
+$gl->config['debug']['db-num-queries'] = true;
+$gl->config['debug']['db-queries'] = true;
+
+
+/**
+ * Set database(s).
+ */
+$gl->config['database'][0]['dsn'] = 'sqlite:' . GLANTZ_SITE_PATH . '/data/.ht.sqlite';
+
+/**
 * What type of urls should be used?
 * 
 * default      = 0      => index.php/controller/method/arg1/arg2/arg3
@@ -24,6 +39,7 @@ $gl->config['url_type'] = 1;
 * Define session name
 */
 $gl->config['session_name'] = preg_replace('/[:\.\/-_]/', '', $_SERVER["SERVER_NAME"]);
+$gl->config['session_key']  = 'glantz';
 
 /*
 * Define server timezone
@@ -52,6 +68,7 @@ $gl->config['language'] = 'en';
 $gl->config['controllers'] = array(
   'index'     => array('enabled' => true,'class' => 'CCIndex'),
   'developer' => array('enabled' => true,'class' => 'CCDeveloper'),
+  'guestbook' => array('enabled' => true,'class' => 'CCGuestbook'),
 );
 
 /**

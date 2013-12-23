@@ -11,26 +11,16 @@ body{margin:0;padding:0;color:#333;background-color:#fff;
 
 #wrap-header {}
 #wrap-main {}
-#wrap-footer {}
+#wrap-footer {border-top:1px solid #ccc;background-color:#eee;}
 
 #header,
 #main,
-#footer {margin:8px auto;
-  padding:1em;
-  width:970px;
-  background-color:#d7dee6;
-  border:1px solid #999;
-  border-radius: 10px;}
+#footer {margin:0 auto;width:970px;padding:8px;}
 #main,
 #footer {margin-bottom:16px;}
 
 #header,
-#main {margin:8px auto;
-  padding:1em;
-  width:970px;
-  background-color:#d7dee6;
-  border:1px solid #999;
-  border-radius: 10px;}
+#main {background-color:#fff;}
 #main {min-height:300px;}
 #footer {font-size:0.80em;color:#666;background-color:#eee;}
 

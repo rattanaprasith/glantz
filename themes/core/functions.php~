@@ -2,7 +2,12 @@
 /**
 * Helpers for the template file.
 */
-$gl->data['header'] = '<h1>Header: Glantz</h1>';
+$gl->data['header'] = 'Glantz';
+$gl->data['slogan'] = 'A PHP-based MVC-inspired CMF';
+$gl->data['favicon'] = theme_url('favicon.ico');
+$gl->data['logo'] = theme_url('logo_80x80.png');
+$gl->data['logo_width'] = 150;
+$gl->data['logo_height'] = 150;
 $gl->data['footer'] = <<<EOD
 <p>Footer: &copy; Glantz by Rattana Prasith</p>
 
