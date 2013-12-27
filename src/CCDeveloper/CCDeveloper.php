@@ -20,18 +20,31 @@ class CCDeveloper extends CObject implements IController {
     $this->Menu();
   }
 
+<<<<<<< HEAD
   /**
     * Display all items of the CObject.
     */
    public function DisplayObject() {   
+=======
+/**
+* Display all items of the CObject.
+*/
+
+public function DisplayObject() {   
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
       $this->Menu();
       
       $this->data['main'] .= <<<EOD
 <h2>Dumping content of CDeveloper</h2>
 <p>Here is the content of the controller, including properties from CObject which holds access to common resources in CGlantz.</p>
 EOD;
+<<<<<<< HEAD
       $this->data['main'] .= '<pre>' . htmlent(print_r($this, true)) . '</pre>';
    }
+=======
+      $this->data['main'] .= '<pre>' . htmlentities(print_r($this, true)) . '</pre>';
+}
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
    
    
 
@@ -40,6 +53,7 @@ EOD;
    */
   public function Links() {  
     $this->Menu();
+<<<<<<< HEAD
                 
                 $url = 'developer/links';
                 $current = $this->request->CreateUrl($url);
@@ -55,6 +69,23 @@ EOD;
                 $this->request->querystringUrl = true;                
                 $querystring = $this->request->CreateUrl($url);
     
+=======
+    
+    $url = 'developer/links';
+    $current      = $this->request->CreateUrl($url);
+
+    $this->request->cleanUrl = false;
+    $this->request->querystringUrl = false;    
+    $default      = $this->request->CreateUrl($url);
+    
+    $this->request->cleanUrl = true;
+    $clean        = $this->request->CreateUrl($url);    
+    
+    $this->request->cleanUrl = false;
+    $this->request->querystringUrl = true;    
+    $querystring  = $this->request->CreateUrl($url);
+    
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
     $this->data['main'] .= <<<EOD
 <h2>CRequest::CreateUrl()</h2>
 <p>Here is a list of urls created using above method with various settings. All links should lead to

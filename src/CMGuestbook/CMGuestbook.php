@@ -4,7 +4,11 @@
 * 
 * @package GlantzCore
 */
+<<<<<<< HEAD
 class CMGuestbook extends CObject implements IHasSQL, IModule {
+=======
+class CMGuestbook extends CObject implements IHasSQL {
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 
 
   /**
@@ -35,6 +39,7 @@ class CMGuestbook extends CObject implements IHasSQL, IModule {
 
 
   /**
+<<<<<<< HEAD
    * Implementing interface IModule. Manage install/update/deinstall and equal actions.
    */
   public function Manage($action=null) {
@@ -51,6 +56,16 @@ class CMGuestbook extends CObject implements IHasSQL, IModule {
       default:
         throw new Exception('Unsupported action for this module.');
       break;
+=======
+   * Init the guestbook and create appropriate tables.
+   */
+  public function Init() {
+    try {
+      $this->db->ExecuteQuery(self::SQL('create table guestbook'));
+      $this->session->AddMessage('notice', 'Successfully created the database tables (or left them untouched if they already existed).');
+    } catch(Exception$e) {
+      die("$e<br/>Failed to open database: " . $this->config['database'][0]['dsn']);
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
     }
   }
   

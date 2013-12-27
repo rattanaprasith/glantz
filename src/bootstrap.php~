@@ -43,7 +43,11 @@ function getIncludeContents($filename, $vars=array()) {
   return false;
 }
 
+<<<<<<< HEAD
 /**
+=======
+ /**
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 * Helper, wrap html_entites with correct character encoding
 */
 function htmlent($str, $flags = ENT_COMPAT) {

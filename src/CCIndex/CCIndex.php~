@@ -15,6 +15,7 @@ class CCIndex extends CObject implements IController {
    /**
     * Implementing interface IController. All controllers must have an index action.
     */
+<<<<<<< HEAD
     public function Index() {         
     $this->views->SetTitle('Index Controller');
     $this->views->AddInclude(__DIR__ . '/index.tpl.php', array('menu'=>$this->Menu()));
@@ -39,4 +40,12 @@ class CCIndex extends CObject implements IController {
     }
     return $items;
   }
+=======
+   public function Index() {   
+      global $gl;
+      $gl->data['title'] = "The Index Controller";
+      $gl->data['main'] = "<h1>The Index Controller</h1>";
+   }
+
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 }

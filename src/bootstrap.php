@@ -44,6 +44,7 @@ function getIncludeContents($filename, $vars=array()) {
 }
 
 /**
+<<<<<<< HEAD
  * Helper, wrap html_entites with correct character encoding
  */
 function htmlEnt($str, $flags = ENT_COMPAT) {
@@ -183,3 +184,10 @@ function bbcode2html($text) {
     );     
   return preg_replace($search, $replace, $text);
 }
+=======
+* Helper, wrap html_entites with correct character encoding
+*/
+function htmlent($str, $flags = ENT_COMPAT) {
+  return htmlentities($str, $flags, CGlantz::Instance()->config['character_encoding']);
+}
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea

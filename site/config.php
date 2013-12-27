@@ -16,7 +16,10 @@ ini_set('display_errors', 1);
 $gl->config['debug']['glantz'] = false;
 $gl->config['debug']['session'] = false;
 $gl->config['debug']['timer'] = true;
+<<<<<<< HEAD
 $gl->config['debug']['user'] = true;
+=======
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 $gl->config['debug']['db-num-queries'] = true;
 $gl->config['debug']['db-queries'] = true;
 
@@ -75,6 +78,7 @@ $gl->config['controllers'] = array(
   'index'     => array('enabled' => true,'class' => 'CCIndex'),
   'developer' => array('enabled' => true,'class' => 'CCDeveloper'),
   'guestbook' => array('enabled' => true,'class' => 'CCGuestbook'),
+<<<<<<< HEAD
   'theme'     => array('enabled' => true,'class' => 'CCTheme'),
   'user'      => array('enabled' => true,'class' => 'CCUser'),
   'content'   => array('enabled' => true,'class' => 'CCContent'),
@@ -83,6 +87,8 @@ $gl->config['controllers'] = array(
   'acp'       => array('enabled' => true,'class' => 'CCAdminControlPanel'),
   'module'   => array('enabled' => true,'class' => 'CCModules'),
   'my'        => array('enabled' => true,'class' => 'CCMycontroller'),
+=======
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 );
 
 /**

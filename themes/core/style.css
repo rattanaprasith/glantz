@@ -34,6 +34,7 @@ body{margin:0;padding:0;color:#333;background-color:#fff;
 #main {min-height:300px;}
 #footer {font-size:0.80em;color:#666;background-color:#eee;}
 
+<<<<<<< HEAD
 /**
  * Login menu
  */
@@ -42,6 +43,8 @@ body{margin:0;padding:0;color:#333;background-color:#fff;
 #login-menu a{text-decoration:none;}
 #login-menu a:hover{text-decoration:underline;}
 
+=======
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 
 /**
  * Banner
@@ -79,6 +82,7 @@ h2{border-bottom:1px solid #ccc;padding-bottom:4px;}
 
 
 /**
+<<<<<<< HEAD
  * Forms
  */
 input{font:inherit;}
@@ -92,6 +96,8 @@ label{font-size:smaller;}
 .content-edit textarea{width:40em;height:15em;}
 
 /**
+=======
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
  * User feedback message wrappers.
  */
 .error, .alert, .warning, .notice, .success, .info { 
@@ -106,6 +112,7 @@ padding: 0.8em; margin-bottom: 1em; border: 2px solid #ddd; }
 .success a         { color: #264409; }
 .info a            { color: #205791; }
 
+<<<<<<< HEAD
 
 /**
  * Misc
@@ -113,3 +120,5 @@ padding: 0.8em; margin-bottom: 1em; border: 2px solid #ddd; }
 .smaller-text{font-size:smaller;}
 .silent{color:#999;}
 
+=======
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea

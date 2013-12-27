@@ -94,7 +94,11 @@ function get_messages_from_session() {
 /**
 * Create a url by prepending the base_url.
 */
+<<<<<<< HEAD
 function base_url($url=null) {
+=======
+function base_url($url) {
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
   return CGlantz::Instance()->request->base_url . trim($url, '/');
 }
 
@@ -107,6 +111,7 @@ function current_url() {
 
 /**
 * Prepend the theme_url, which is the url to the current theme directory.
+<<<<<<< HEAD
 *
 * @param $url string the url-part to prepend.
 * @returns string the absolute url.
@@ -186,11 +191,18 @@ function filter_data($data, $filter) {
  */
 function time_diff($start) {
   return formatDateTimeDiff($start);
+=======
+*/
+function theme_url($url) {
+  $gl = CGlantz::Instance();
+  return "{$gl->request->base_url}themes/{$gl->config['theme']['name']}/{$url}";
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 }
 
 /**
 * Render all views.
 */
+<<<<<<< HEAD
 function render_views($region='default') {
   return CGlantz::Instance()->views->Render($region);
 }
@@ -202,4 +214,8 @@ function render_views($region='default') {
 */
 function region_has_content($region='default' /*...*/) {
   return CGlantz::Instance()->views->RegionHasView(func_get_args());
+=======
+function render_views() {
+  return CGlantz::Instance()->views->Render();
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 }

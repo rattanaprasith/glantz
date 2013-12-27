@@ -4,6 +4,7 @@
  * This file is included right before the themes own functions.php
  */
 
+<<<<<<< HEAD
  /**
  * Get list of tools.
  */
@@ -37,6 +38,8 @@ function get_tools() {
 EOD;
 }
 
+=======
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 
 /**
 * Print debuginformation from the framework.
@@ -51,7 +54,11 @@ function get_debug() {
   // Get the debug output
  $html = null;
   if(isset($gl->config['debug']['db-num-queries']) && $gl->config['debug']['db-num-queries'] && isset($gl->db)) {
+<<<<<<< HEAD
     $flash = $gl->session->GetFlash('database_numQueries');
+=======
+    $flash = $mo->session->GetFlash('database_numQueries');
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
     $flash = $flash ? "$flash + " : null;
     $html .= "<p>Database made $flash" . $gl->db->GetNumQueries() . " queries.</p>";
   }
@@ -94,7 +101,11 @@ function get_messages_from_session() {
 /**
 * Create a url by prepending the base_url.
 */
+<<<<<<< HEAD
 function base_url($url=null) {
+=======
+function base_url($url) {
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
   return CGlantz::Instance()->request->base_url . trim($url, '/');
 }
 
@@ -113,6 +124,7 @@ function theme_url($url) {
   return "{$gl->request->base_url}themes/{$gl->config['theme']['name']}/{$url}";
 }
 
+<<<<<<< HEAD
 
 
 function create_url($urlOrController=null, $method=null, $arguments=null) {
@@ -191,4 +203,11 @@ function render_views($region='default') {
 */
 function region_has_content($region='default' /*...*/) {
   return CGlantz::Instance()->views->RegionHasView(func_get_args());
+=======
+/**
+* Render all views.
+*/
+function render_views() {
+  return CGlantz::Instance()->views->Render();
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 }
