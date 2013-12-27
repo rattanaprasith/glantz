@@ -1,0 +1,11 @@
+/** 
+ * Description: Sample theme for site which extends the Morris grid-theme.
+ */
+@import url(../../../themes/grid/style.css);
+
+html{background-color:#FFE2B3;}
+body{background-color:#FFFFFF; width: 1000px;margin: 0px auto;}
+#outer-wrap-header{background-color:#EEEEEE;border-bottom:3px double #222222}
+#outer-wrap-footer{background-color:#EEEEEE;}
+a{color:#222222;}
+#navbar ul.menu li a.selected{background-color:#FFFFFF;border-bottom:none;}
