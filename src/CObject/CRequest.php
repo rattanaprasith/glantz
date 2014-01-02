@@ -5,14 +5,11 @@
 * @package GlantzCore
 */
 class CRequest {
-	
-	
-	/**
+   /**
          * Member variables
          */
-        
-         public $cleanUrl;
-        public $querystringUrl;
+        public $cleanUrl;
+  public $querystringUrl;
 
 
         /**
@@ -141,4 +138,3 @@ class CRequest {
         }
 
 }
-

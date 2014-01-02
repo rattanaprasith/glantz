@@ -96,7 +96,6 @@ class CSession {
     }
   }
 
-<<<<<<< HEAD
 // Get, Set or Unset the authenticated user
           public function SetAuthenticatedUser($profile) {
                   $this->data['authenticated_user'] = $profile;
@@ -108,7 +107,5 @@ class CSession {
                   return $this->authenticated_user;
           }
           
-=======
-
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 }
+

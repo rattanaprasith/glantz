@@ -6,6 +6,7 @@
 */
 class CViewContainer {
 
+<<<<<<< HEAD
   /**
          * Members
          */
@@ -97,7 +98,7 @@ class CViewContainer {
    * @param $region string/array the theme region(s).
    * @returns boolean true if region has views, else false.
    */
-  public function RegionHasView($region) {
+public function RegionHasView($region) {
     if(is_array($region)) {
       foreach($region as $val) {
         if(isset($this->views[$val])) {
@@ -111,6 +112,7 @@ class CViewContainer {
   }
   
   
+  
   /**
    * Render all views according to their type.
    * 
@@ -120,10 +122,74 @@ class CViewContainer {
     if(!isset($this->views[$region])) return;
     foreach($this->views[$region] as $view) {
       switch($view['type']) {
-        case 'include': extract($view['variables']); include($view['file']); break;
-        case 'string':  extract($view['variables']); echo $view['string']; break;
+        case 'include': if(isset($view['variables'])) extract($view['variables']); include($view['file']); break;
+        case 'string':  if(isset($view['variables'])) extract($view['variables']); echo $view['string']; break;
       }
     }
+=======
+   /**
+    * Members
+    */
+   private $data = array();
+   private $views = array();
+   
+
+   /**
+    * Constructor
+    */
+   public function __construct() { ; }
+
+
+   /**
+    * Getters.
+    */
+  public function GetData() { return $this->data; }
+  
+  
+   /**
+    * Set the title of the page.
+    *
+    * @param $value string to be set as title.
+    */
+   public function SetTitle($value) {
+     $this->SetVariable('title', $value);
+  }
+
+
+   /**
+    * Set any variable that should be available for the theme engine.
+    *
+    * @param $value string to be set as title.
+    */
+   public function SetVariable($key, $value) {
+     $this->data[$key] = $value;
+  }
+
+
+   /**
+    * Add a view as file to be included and optional variables.
+    *
+    * @param $file string path to the file to be included.
+    * @param vars array containing the variables that should be avilable for the included file.
+    */
+   public function AddInclude($file, $variables=array()) {
+     $this->views[] = array('type' => 'include', 'file' => $file, 'variables' => $variables);
+  }
+
+
+   /**
+    * Render all views according to their type.
+    */
+   public function Render() {
+     foreach($this->views as $view) {
+      switch($view['type']) {
+        case 'include':
+          extract($view['variables']);
+          include($view['file']);
+          break;
+      }
+     }
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
   }
 
 }

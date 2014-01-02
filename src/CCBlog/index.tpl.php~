@@ -11,4 +11,3 @@
 <?php else:?>
   <p>No posts exists.</p>
 <?php endif;?>
-

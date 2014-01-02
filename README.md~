@@ -47,7 +47,7 @@ $gl->config['theme'] = array(
 );
 
 * Arrayen `$gl->config['theme']` håller reda på alla inställingar. Tanken med Glantz är att man kan göra ett tema i site-katalogen och ärva ett befintligt tema från Glantz's standard-tema.
-I det här fallet så har vi ett tema i site-katalog dvs. `'path' => 'site/themes/newtheme'` som ärver från "Glantz's new-team (förälder-tema)", dvs. `'parent' => 'themes/new'`. Vill man skapa egna teman så kan du göra genom att skapa en ny mapp i `site/themes`, till exempel `site/themes/newtheme`. Sedan skapar du en stylesheet i mappen. Glömt inte att kopiera template-filen för ditt tema, dvs. index.tpl.php, som är en vy för att visa själva temat hur det är uppbyggt och klistra in sedan den i ditt egna tema. Glömt inte att ändra även sökvägen till ditt nya tema i arrayen `$gl->config['theme'].
+I det här fallet så har vi ett tema i site-katalog dvs. `'path' => 'site/themes/newtheme'` som ärver från "Glantz's new-team (förälder-tema)", dvs. `'parent' => 'themes/new'`. Vill man skapa egna teman så kan du göra genom att skapa en ny mapp i `site/themes`, till exempel `site/themes/newtheme`. Sedan skapar du en stylesheet i mappen. Glömt inte att kopiera template-filen för ditt tema, dvs. index.tpl.php, som är en vy för att visa själva temat hur det är uppbyggt och klistra in sedan den i ditt egna tema.  
 * För att ändra loga kan du göra genom att ändra din logotyp i `'logo' => 'logo_rose.jpg',` . Logotypen ska läggas till ditt valda tema i site-katalogen, till exempel `site/themes/newtheme`. 
 * I samma array så finner du även header `'header' => 'Glantz',` och footer `'footer' => '<p>Glantz &copy; by Rattana Prasith</p>',` där du kan ändra på titel och footer på webbplatsen.
 * Navigeringsmenyn ligger också i config.php och ser här kan den se ut: 
@@ -72,7 +72,7 @@ $gl->config['menus'] = array(
   ),
 );
 
-Man kan definera flera olika menyer och i det här fallet så har vi två olika menyer, "navbar" och "my-navbar". För att välja vilen meny som ska användas då kan du göra genom att ange den i `'menu_to_region' => array('DinEgenMeny'=>'navbar'),`. Alltså i detta fallet så är navbar-menyn som används och så här ser det ut i `'menu_to_region' => array('navbar'=>'navbar'),`.
+Man kan definera flera olika menyer och i det här fallet så har vi två olika menyer, "navbar" och "my-navbar". För att välja vilen meny som ska användas då kan du göra genom att ange den i `'menu_to_region' => array('my-navbar'=>'navbar'),`. Alltså i detta fallet så är navbar-menyn som används `'menu_to_region' => array('navbar'=>'navbar'),`.
 
 
 
@@ -83,7 +83,6 @@ När du öppnar ramverket i browsern så följer 5 menyalternativ. Gå in till c
 
 
 
-Skapa en sida
+Skapa en blogg
 ---------------
 
-För att skapa en sida så gör du som du gjorde när du skapade ett blogginlägg, fast "Type" måste vara page istället.

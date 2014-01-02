@@ -16,10 +16,7 @@ ini_set('display_errors', 1);
 $gl->config['debug']['glantz'] = false;
 $gl->config['debug']['session'] = false;
 $gl->config['debug']['timer'] = true;
-<<<<<<< HEAD
 $gl->config['debug']['user'] = true;
-=======
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 $gl->config['debug']['db-num-queries'] = true;
 $gl->config['debug']['db-queries'] = true;
 
@@ -78,7 +75,6 @@ $gl->config['controllers'] = array(
   'index'     => array('enabled' => true,'class' => 'CCIndex'),
   'developer' => array('enabled' => true,'class' => 'CCDeveloper'),
   'guestbook' => array('enabled' => true,'class' => 'CCGuestbook'),
-<<<<<<< HEAD
   'theme'     => array('enabled' => true,'class' => 'CCTheme'),
   'user'      => array('enabled' => true,'class' => 'CCUser'),
   'content'   => array('enabled' => true,'class' => 'CCContent'),
@@ -87,8 +83,7 @@ $gl->config['controllers'] = array(
   'acp'       => array('enabled' => true,'class' => 'CCAdminControlPanel'),
   'module'   => array('enabled' => true,'class' => 'CCModules'),
   'my'        => array('enabled' => true,'class' => 'CCMycontroller'),
-=======
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
+
 );
 
 /**
@@ -104,7 +99,7 @@ $gl->config['routing'] = array(
 /**
  * Define menus.
  *
- * Create hardcoded menus and map them to a theme region through $ly->config['theme'].
+ * Create hardcoded menus and map them to a theme region through $gl->config['theme'].
  */
 $gl->config['menus'] = array(
   'navbar' => array(
@@ -137,9 +132,8 @@ $gl->config['create_new_users'] = true;
 * Settings for the theme.
 */
 $gl->config['theme'] = array(
-  'path'            => 'site/themes/mytheme',
-  //'path'            => 'themes/grid',
-  'parent'          => 'themes/grid',
+  'path'            => 'site/themes/newtheme',
+   'parent'          => 'themes/new',
   'stylesheet'      => 'style.css',
   'template_file'   => 'index.tpl.php',
   'regions' => array('navbar', 'flash','featured-first','featured-middle','featured-last',
@@ -147,14 +141,14 @@ $gl->config['theme'] = array(
     'footer-column-one','footer-column-two','footer-column-three','footer-column-four',
     'footer',
   ),
-  'menu_to_region' => array('my-navbar'=>'navbar'),
+  'menu_to_region' => array('navbar'=>'navbar'),
   'data' => array(
     'header' => 'Glantz',
     'slogan' => 'A PHP-based MVC-inspired CMF',
     'favicon' => 'logo_80x80.png',
-    'logo' => 'logo_80x80.png',
-    'logo_width'  => 80,
-    'logo_height' => 80,
+    'logo' => 'logo_rose.jpg',
+    'logo_width'  => 150,
+    'logo_height' => 150,
     'footer' => '<p>Glantz &copy; by Rattana Prasith</p>',
   ),
 );

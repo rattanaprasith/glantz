@@ -5,8 +5,8 @@
 * @package GlantzCore
 */
 class CCGuestbook extends CObject implements IController {
-	
-	private $guestbookModel;
+  
+  private $guestbookModel;
   
   /**
    * Constructor
@@ -47,6 +47,9 @@ class CCGuestbook extends CObject implements IController {
   }
   
 }
+  
+  
+  
   
   
   
