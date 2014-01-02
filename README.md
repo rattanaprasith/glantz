@@ -10,7 +10,7 @@ Installation av Glantz
 1. För att kunna installera Glantz så börjar du med att klona ramverket från Github med foljande kommando
 `git clone git://github.com/rattanaprasith/glantz.git`. Du behöver även Git Bash eller Git GUI på din dator för att själva kloningen skall gå att genomföra. De kan laddas ner på följande länk: http://git-scm.com/downloads
 
-2. Efter att laddat hem ramverket så ska du göra så att `site/data` blir skrivbar. Detta gör du med hjälp av dessa kommandon `cd glantz; chmod 777 site/data`. Du kan även göra det via en sftp-server som till exempelvis Filezilla. Data-mappen behövs också skapa i site-katalogen.
+2. Efter att laddat hem ramverket och lägga det till den valda mappen, så ska du göra så att `site/data` blir skrivbar. Detta gör du med hjälp av dessa kommandon `cd glantz; chmod 777 site/data`. Du kan även göra det via en sftp-server som till exempelvis Filezilla. Data-mappen behövs också skapa i site-katalogen.
 
 3. Sedan måste du ändra i .htaccess fil för att hela siten ska fungera. Det du behöver ändra i filen är RewriteBase då behöver du ändra den till där mappen ligger på din server eller i dina lokala filer.
 Så här kan det se ut `RewriteBase /~rapr13/phpmvc/kmom08/glantz`
@@ -75,7 +75,7 @@ I det här fallet så har vi ett tema i site-katalog dvs. `'path' => 'site/theme
 			),
 			);
 
-Man kan definera flera olika menyer och i det här fallet så har vi två olika menyer, "navbar" och "my-navbar". För att välja vilen meny som ska användas då kan du göra genom att ange den i `'menu_to_region' => array('DinEgenMeny'=>'navbar'),`. Alltså i detta fallet så är navbar-menyn som används och så här ser det ut i `'menu_to_region' => array('navbar'=>'navbar'),`.
+Man kan definera flera olika menyer och i det här fallet så har vi två olika menyer, "navbar" och "my-navbar". För att välja vilen meny som ska användas då kan du göra genom att ange den i `'menu_to_region' => array('DinEgenMeny'=>'navbar'),`. Alltså i detta fallet så är navbar-menyn som används och så här ser det ut i `'menu_to_region' => array('navbar'=>'navbar'),` .
 
 
 
