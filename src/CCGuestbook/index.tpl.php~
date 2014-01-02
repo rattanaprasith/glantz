@@ -18,6 +18,10 @@
 <?php foreach($entries as $val):?>
 <div style='background-color:#f6f6f6;border:1px solid #ccc;margin-bottom:1em;padding:1em;'>
   <p>At: <?=$val['created']?></p>
+<<<<<<< HEAD
   <p><?=htmlent($val['entry'])?></p>
+=======
+  <p><?=htmlentities($val['entry'])?></p>
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 </div>
 <?php endforeach;?>

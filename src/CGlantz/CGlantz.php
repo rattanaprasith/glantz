@@ -6,7 +6,7 @@
 */
 class CGlantz implements ISingleton {
 
-	private static $instance = null;
+  private static $instance = null;
         public $config = array();
         public $request;
         public $data;
@@ -43,30 +43,19 @@ class CGlantz implements ISingleton {
                 $this->session->PopulateFromSession();
                 
       // Set default date/time-zone
-<<<<<<< HEAD
                 date_default_timezone_set('UTC');
-=======
-                date_default_timezone_set($this->config['timezone']);
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
                 
       
       // Create a database object.
       if(isset($this->config['database'][0]['dsn'])) {
-<<<<<<< HEAD
       $this->db = new CDatabase($this->config['database'][0]['dsn']);
-=======
-        $this->db = new CMDatabase($this->config['database'][0]['dsn']);
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
      }
      
      // Create a container for all views and theme data
           $this->views = new CViewContainer();
-<<<<<<< HEAD
           
      // Create a object for the user
       $this->user = new CMUser($this);
-=======
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
    }
    
  public function FrontControllerRoute() {
@@ -99,12 +88,9 @@ class CGlantz implements ISingleton {
           $methodObj = $rc->getMethod($formattedMethod);
           if($methodObj->isPublic()) {
             $methodObj->invokeArgs($controllerObj, $arguments);
-<<<<<<< HEAD
           } else {
             die("404. " . get_class() . ' error: Controller method not public.');          
           }
-=======
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
         } else {
           die("404. " . get_class() . ' error: Controller does not contain method.');
         }
@@ -116,12 +102,10 @@ class CGlantz implements ISingleton {
       die('404. Page is not found.');
     }
   }
-  }
   
   /**
     * Theme Engine Render, renders the views using the selected theme.
     */
-<<<<<<< HEAD
  public function ThemeEngineRender() {
     // Save to session before output anything
     $this->session->StoreInSession();
@@ -154,23 +138,6 @@ class CGlantz implements ISingleton {
         $this->views->AddString($this->DrawMenu($key), null, $val);
       }
     }
-=======
-  public function ThemeEngineRender() {
- // Save to session before output anything
-    $this->session->StoreInSession();
-  	  
- // Is theme enabled?
-    if(!isset($this->config['theme'])) {
-      return;
-    }
-    // Get the paths and settings for the theme
-    $themeName    = $this->config['theme']['name'];
-    $themePath    = GLANTZ_INSTALL_PATH . "/themes/{$themeName}";
-    $themeUrl	 = $this->request->base_url . "themes/{$themeName}";
-    
-    // Add stylesheet path to the $gl->data array
-    $this->data['stylesheet'] = "{$themeUrl}/style.css";
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 
     // Include the global functions.php and the functions.php that are part of the theme
     $gl = &$this;
@@ -194,7 +161,6 @@ class CGlantz implements ISingleton {
       extract($this->config['theme']['data']);
     }
 
-<<<<<<< HEAD
     // Execute the template file
     $templateFile = (isset($this->config['theme']['template_file'])) ? $this->config['theme']['template_file'] : 'default.tpl.php';
     if(is_file("{$themePath}/{$templateFile}")) {
@@ -307,13 +273,6 @@ class CGlantz implements ISingleton {
   }
 
   
-=======
-    // Extract $gl->data to own variables and handover to the template file
-    extract($this->data);      
-    extract($this->views->GetData());      
-    include("{$themePath}/default.tpl.php");
-  }
-  
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
   
   }
+

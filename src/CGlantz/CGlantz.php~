@@ -116,6 +116,7 @@ class CGlantz implements ISingleton {
       die('404. Page is not found.');
     }
   }
+  }
   
   /**
     * Theme Engine Render, renders the views using the selected theme.
@@ -128,30 +129,10 @@ class CGlantz implements ISingleton {
     // Is theme enabled?
     if(!isset($this->config['theme'])) { return; }
     
-=======
-  public function ThemeEngineRender() {
- // Save to session before output anything
-    $this->session->StoreInSession();
-  	  
- // Is theme enabled?
-    if(!isset($this->config['theme'])) {
-      return;
-    }
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
-    // Get the paths and settings for the theme
-    
-<<<<<<< HEAD
+    // Get the paths and settings for the theme, look in the site dir first
     $themePath         = GLANTZ_INSTALL_PATH . '/' . $this->config['theme']['path'];
     $themeUrl                = $this->request->base_url . $this->config['theme']['path'];
-=======
-    // Add stylesheet path to the $gl->data array
-    $this->data['stylesheet'] = "{$themeUrl}/style.css";
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 
-    
-    // Add stylesheet path to the $ly->data array
-    $this->data['stylesheet'] = $this->config['theme']['stylesheet'];
-    
     // Is there a parent theme?
     $parentPath = null;
     $parentUrl = null;
@@ -160,7 +141,10 @@ class CGlantz implements ISingleton {
       $parentUrl        = $this->request->base_url . $this->config['theme']['parent'];
     }
     
-    // Make the theme urls available as part of $gl
+    // Add stylesheet name to the $mo->data array
+    $this->data['stylesheet'] = $this->config['theme']['stylesheet'];
+    
+    // Make the theme urls available as part of $mo
     $this->themeUrl = $themeUrl;
     $this->themeParentUrl = $parentUrl;
     
@@ -170,10 +154,27 @@ class CGlantz implements ISingleton {
         $this->views->AddString($this->DrawMenu($key), null, $val);
       }
     }
+=======
+  public function ThemeEngineRender() {
+ // Save to session before output anything
+    $this->session->StoreInSession();
+  	  
+ // Is theme enabled?
+    if(!isset($this->config['theme'])) {
+      return;
+    }
+    // Get the paths and settings for the theme
+    $themeName    = $this->config['theme']['name'];
+    $themePath    = GLANTZ_INSTALL_PATH . "/themes/{$themeName}";
+    $themeUrl	 = $this->request->base_url . "themes/{$themeName}";
     
+    // Add stylesheet path to the $gl->data array
+    $this->data['stylesheet'] = "{$themeUrl}/style.css";
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
+
     // Include the global functions.php and the functions.php that are part of the theme
     $gl = &$this;
-    // First the default Lydia themes/functions.php
+    // First the default Morris themes/functions.php
     include(GLANTZ_INSTALL_PATH . '/themes/functions.php');
     // Then the functions.php from the parent theme
     if($parentPath) {
@@ -181,13 +182,20 @@ class CGlantz implements ISingleton {
         include "{$parentPath}/functions.php";
       }
     }
-    
     // And last the current theme functions.php
     if(is_file("{$themePath}/functions.php")) {
       include "{$themePath}/functions.php";
     }
 
-   // Execute the template file
+    // Extract $mo->data to own variables and handover to the template file
+    extract($this->data); // OBSOLETE, use $this->views->GetData() to set variables
+    extract($this->views->GetData());
+    if(isset($this->config['theme']['data'])) {
+      extract($this->config['theme']['data']);
+    }
+
+<<<<<<< HEAD
+    // Execute the template file
     $templateFile = (isset($this->config['theme']['template_file'])) ? $this->config['theme']['template_file'] : 'default.tpl.php';
     if(is_file("{$themePath}/{$templateFile}")) {
       include("{$themePath}/{$templateFile}");
@@ -264,7 +272,6 @@ class CGlantz implements ISingleton {
   }
 
 
-<<<<<<< HEAD
         /**
          * Create an url. Wrapper and shorter method for $this->request->CreateUrl()
          *
@@ -299,13 +306,14 @@ class CGlantz implements ISingleton {
     return "<ul class='menu {$menu}'>\n{$items}</ul>\n";
   }
 
+  
 =======
     // Extract $gl->data to own variables and handover to the template file
     extract($this->data);      
     extract($this->views->GetData());      
     include("{$themePath}/default.tpl.php");
   }
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
   
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
   
   }

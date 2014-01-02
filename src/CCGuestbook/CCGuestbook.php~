@@ -4,7 +4,7 @@
 * 
 * @package GlantzCore
 */
-class CCGuestbook extends CObject implements IController, IHasSQL {
+class CCGuestbook extends CObject implements IController {
 	
 	private $guestbookModel;
   

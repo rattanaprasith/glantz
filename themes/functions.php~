@@ -4,7 +4,6 @@
  * This file is included right before the themes own functions.php
  */
 
-<<<<<<< HEAD
  /**
  * Get list of tools.
  */
@@ -38,8 +37,6 @@ function get_tools() {
 EOD;
 }
 
-=======
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 
 /**
 * Print debuginformation from the framework.
@@ -54,11 +51,7 @@ function get_debug() {
   // Get the debug output
  $html = null;
   if(isset($gl->config['debug']['db-num-queries']) && $gl->config['debug']['db-num-queries'] && isset($gl->db)) {
-<<<<<<< HEAD
     $flash = $gl->session->GetFlash('database_numQueries');
-=======
-    $flash = $mo->session->GetFlash('database_numQueries');
->>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
     $flash = $flash ? "$flash + " : null;
     $html .= "<p>Database made $flash" . $gl->db->GetNumQueries() . " queries.</p>";
   }
@@ -118,13 +111,24 @@ function current_url() {
 
 /**
 * Prepend the theme_url, which is the url to the current theme directory.
+<<<<<<< HEAD
+*
+* @param $url string the url-part to prepend.
+* @returns string the absolute url.
 */
 function theme_url($url) {
-  $gl = CGlantz::Instance();
-  return "{$gl->request->base_url}themes/{$gl->config['theme']['name']}/{$url}";
+  return create_url(CGlantz::Instance()->themeUrl . "/{$url}");
 }
 
-<<<<<<< HEAD
+/**
+* Prepend the theme_parent_url, which is the url to the parent theme directory.
+*
+* @param $url string the url-part to prepend.
+* @returns string the absolute url.
+*/
+function theme_parent_url($url) {
+  return create_url(CGlantz::Instance()->themeParentUrl . "/{$url}");
+}
 
 
 function create_url($urlOrController=null, $method=null, $arguments=null) {
@@ -187,11 +191,18 @@ function filter_data($data, $filter) {
  */
 function time_diff($start) {
   return formatDateTimeDiff($start);
+=======
+*/
+function theme_url($url) {
+  $gl = CGlantz::Instance();
+  return "{$gl->request->base_url}themes/{$gl->config['theme']['name']}/{$url}";
+>>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
 }
 
 /**
 * Render all views.
 */
+<<<<<<< HEAD
 function render_views($region='default') {
   return CGlantz::Instance()->views->Render($region);
 }
@@ -204,9 +215,6 @@ function render_views($region='default') {
 function region_has_content($region='default' /*...*/) {
   return CGlantz::Instance()->views->RegionHasView(func_get_args());
 =======
-/**
-* Render all views.
-*/
 function render_views() {
   return CGlantz::Instance()->views->Render();
 >>>>>>> bcfd18a5f1aeb811cb8a797e779a0c0cde1bfcea
