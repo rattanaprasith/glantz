@@ -102,7 +102,7 @@ $gl->config['routing'] = array(
  * Create hardcoded menus and map them to a theme region through $gl->config['theme'].
  */
 $gl->config['menus'] = array(
-  'huvud-navbar' => array(
+  'navbar' => array(
     'home'      => array('label'=>'Home', 'url'=>'home'),
     'modules'   => array('label'=>'Modules', 'url'=>'module'),
     'content'   => array('label'=>'Content', 'url'=>'content'),
@@ -133,12 +133,7 @@ $gl->config['create_new_users'] = true;
 */
 $gl->config['theme'] = array(
   'path'            => 'site/themes/newtheme',
-<<<<<<< HEAD
    'parent'          => 'themes/new',
-=======
-  //'path'            => 'themes/grid',
-  'parent'          => 'themes/',
->>>>>>> a4ce4ad0da95b426c7b3925b40cd590d00d3deaa
   'stylesheet'      => 'style.css',
   'template_file'   => 'index.tpl.php',
   'regions' => array('navbar', 'flash','featured-first','featured-middle','featured-last',
@@ -146,11 +141,7 @@ $gl->config['theme'] = array(
     'footer-column-one','footer-column-two','footer-column-three','footer-column-four',
     'footer',
   ),
-<<<<<<< HEAD
   'menu_to_region' => array('navbar'=>'navbar'),
-=======
-  'menu_to_region' => array('huvud-navbar'=>'navbar'),
->>>>>>> a4ce4ad0da95b426c7b3925b40cd590d00d3deaa
   'data' => array(
     'header' => 'Glantz',
     'slogan' => 'A PHP-based MVC-inspired CMF',

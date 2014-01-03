@@ -55,6 +55,18 @@ class CCMycontroller extends CObject implements IController {
          ));
   }
   
+ /**
+ * The page about my work
+ */
+ 
+ public function myWork() {
+ $content = new CMContent();
+ $this->views->SetTitle('Mitt jobb'.htmlEnt($content['title']))
+ ->AddInclude(__DIR__ . '/mittjobb.tpl.php', array(
+ 'content' => $content,
+));
+ }
+  
 
 } 
 

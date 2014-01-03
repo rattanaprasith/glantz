@@ -107,11 +107,12 @@ $gl->config['menus'] = array(
     'modules'   => array('label'=>'Modules', 'url'=>'module'),
     'content'   => array('label'=>'Content', 'url'=>'content'),
     'guestbook' => array('label'=>'Guestbook', 'url'=>'guestbook'),
-    'blog'      => array('label'=>'Blog', 'url'=>'blog'),
+    'blog'      => array('label'=>'Blog', 'url'=>'blog'),    
   ),
   'my-navbar' => array(
     'home'      => array('label'=>'About Me', 'url'=>'my'),
     'blog'      => array('label'=>'My Blog', 'url'=>'my/blog'),
+    'work' => array('label'=>'Mitt jobb', 'url'=>'my/myWork'),
     'guestbook' => array('label'=>'Guestbook', 'url'=>'my/guestbook'),
   ),
 );
