@@ -90,9 +90,4 @@ class CMGuestbook extends CObject implements IHasSQL, IModule {
   
 }
 
-<<<<<<< HEAD
-=======
 
-  
-}
->>>>>>> a4ce4ad0da95b426c7b3925b40cd590d00d3deaa
