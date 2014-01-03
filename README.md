@@ -16,9 +16,9 @@ Installation av Glantz
 
 3. NU har du ramverket i din dator. Det som du behöver göra sedan är att skapa data-mappen där databasen ligger. Börjar med att öppna den valda mappen i Git Bash och gör i följande steg:
 	
-	* Öppnar mappen "glantz" genom att skriva: `cd glantz` 
-	* Öppnar sedna mappen "site" där du ska skapa data-mappen och skriva: `cd site` 
-	* För att skapa data-mappen så skriver du  `mkdir data` 
+	* Öppnar mappen "glantz" genom att skriva: `$  cd glantz` 
+	* Öppnar sedna mappen "site" där du ska skapa data-mappen och skriva: `$  cd site` 
+	* För att skapa data-mappen så skriver du  `$  mkdir data` 
 	
 Nu har data-mappen i site-katalogen.
 
@@ -133,7 +133,7 @@ Skapa en sida
 
 För att skapa en sida på webbplatsen så behöver du redigera tre filer: CCMycontroller.php, config.php och mittjobb.php (den nya sidan). Följ följande stegen för att lära dig hur du kan skapa en nya sida till din webbplats.
 	
-	1. Börjar med att öppna kontrollen i site/src-katalogen, dvs. `glantz/site/src/CCMycontroller/CCMycontroller.php` . I kontrollerna innehåller tre sidor, en förstasida om mig själv "The page about me", en blogg "The blog" och en gästbok "The guestbook". Allt ligger i samma fil. Här nedan finns ett exempel på hur koden för "About me" sidan ser ut, under rubriken "The page about me":
+1. Börjar med att öppna kontrollen i site/src-katalogen, dvs. `glantz/site/src/CCMycontroller/CCMycontroller.php` . I kontrollerna innehåller tre sidor, en förstasida om mig själv "The page about me", en blogg "The blog" och en gästbok "The guestbook". Allt ligger i samma fil. Här nedan finns ett exempel på hur koden för "About me" sidan ser ut, under rubriken "The page about me":
 	
 			/**
 			* The page about me
@@ -146,8 +146,8 @@ För att skapa en sida på webbplatsen så behöver du redigera tre filer: CCMyc
 			));
 			}
 			
-	För att börja skapa en nya sida så kan göra genom att kopiera och klistra in denna function. Det som behöver ändras är namnet på functionen ("public function index()" till "public function myWork()"), numret i $content = new CMContent(5) , titeln "About me" samt template filen "page.tpl.php".
-	Rubriken "The page about me" är inte nödvändig för att koden ska fungera, utan för att hålla ordning på innehållet och dokumentationen. Låt säga att du vill skapa en ny sida som visar upp allt ditt arbete, då börjar du och ta bort numret i "$content = new CMContent(5)" och ändra till "$content = new CMContent()". Ändra sedan titeln till "SetTitle('Mitt jobb'.htmlEnt($content['title']))", template-filen till "(__DIR__ . '/mittjobb.tpl.php)" och även rubriken ändras till "The page about my work" .
+För att börja skapa en nya sida så kan göra genom att kopiera och klistra in denna function. Det som behöver ändras är namnet på functionen ("public function index()" till "public function myWork()"), numret i $content = new CMContent(5) , titeln "About me" samt template filen "page.tpl.php".
+Rubriken "The page about me" är inte nödvändig för att koden ska fungera, utan för att hålla ordning på innehållet och dokumentationen. Låt säga att du vill skapa en ny sida som visar upp allt ditt arbete, då börjar du och ta bort numret i "$content = new CMContent(5)" och ändra till "$content = new CMContent()". Ändra sedan titeln till "SetTitle('Mitt jobb'.htmlEnt($content['title']))", template-filen till "(__DIR__ . '/mittjobb.tpl.php)" och även rubriken ändras till "The page about my work" .
 	
 			/**
 			* The page about my work
@@ -160,7 +160,7 @@ För att skapa en sida på webbplatsen så behöver du redigera tre filer: CCMyc
 			));
 			}
 			
-	2. Nästa steg som behöver göras är att definera webbsidans meny i `/site/config.php`. Så här kan det se ut:
+2. Nästa steg som behöver göras är att definera webbsidans meny i `/site/config.php`. Så här kan det se ut:
 	
 			'my-navbar' => array(
 			'home'      => array('label'=>'About Me', 'url'=>'my'),
@@ -170,8 +170,8 @@ För att skapa en sida på webbplatsen så behöver du redigera tre filer: CCMyc
 			),
 			);
 			
-	Menyn "work" har nu lagts till i navigeringsmenyn och du kan lägga den i vilken ordning som du än önskar. 
+Menyn "work" har nu lagts till i navigeringsmenyn och du kan lägga den i vilken ordning som du än önskar. 
 	
-	3. Det sista som behöver göras är att skapa en ny template fil, vilket i det här fallet är mittjobb.tpl.php. Du kan kopiera filen "page.tpl.php" och döp om den till "mittjobb.tpl.php" och fylla med kod som än du vill. Spara filen i samma katalogen dvs. `site/src/CCMycontroller` och öppnar online på adressen: www.yourserver/glantz/my/myWork
-	Här kan du se resultatet : http://www.student.bth.se/~rapr13/phpmvc/kmom08/glantz/my/myWork
+3. Det sista som behöver göras är att skapa en ny template fil, vilket i det här fallet är mittjobb.tpl.php. Du kan kopiera filen "page.tpl.php" och döp om den till "mittjobb.tpl.php" och fylla med kod som än du vill. Spara filen i samma katalogen dvs. `site/src/CCMycontroller` och öppnar online på adressen: www.yourserver/glantz/my/myWork
+Här kan du se resultatet : http://www.student.bth.se/~rapr13/phpmvc/kmom08/glantz/my/myWork
 			
