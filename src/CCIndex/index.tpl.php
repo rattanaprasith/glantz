@@ -12,7 +12,7 @@
 <p>First you have to make the data-directory writable. This is the place where Glantz needs
 to be able to write and create files.</p>
 <blockquote>
-<code>cd Glantz; chmod 777 site/data</code>
+<code>cd glantz; chmod 777 site/data</code>
 </blockquote>
 
 <p>Second, Glantz has some modules that need to be initialised. You can do this through a 

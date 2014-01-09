@@ -15,8 +15,8 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess, IModule {
   /**
    * Constructor
    */
-  public function __construct($ly=null) {
-    parent::__construct($ly);
+  public function __construct($gl=null) {
+    parent::__construct($gl);
     $profile = $this->session->GetAuthenticatedUser();
     $this->profile = is_null($profile) ? array() : $profile;
     $this['isAuthenticated'] = is_null($profile) ? false : true;
@@ -172,7 +172,7 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess, IModule {
    */
   public function ChangePassword($plain) {
     $password = $this->CreatePassword($plain);
-    $this->db->ExecuteQuery(self::SQL('update password'), array($password['algoritm'], $password['salt'], $password['password'], $this['id']));
+    $this->db->ExecuteQuery(self::SQL('update password'), array($password['algorithm'], $password['salt'], $password['password'], $this['id']));
     return $this->db->RowCount() === 1;
   }
   

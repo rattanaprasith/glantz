@@ -10,7 +10,7 @@ Installation av Glantz
 1. För att kunna installera Glantz så börjar du med att klona ramverket från Github med foljande kommando
 `git clone git://github.com/rattanaprasith/glantz.git`. Du behöver även Git Bash eller Git GUI på din dator för att själva kloningen skall gå att genomföra. De kan laddas ner på följande länk: http://git-scm.com/downloads
 
-2. Ramverket ska läggas i en egen mapp. Så börjar du med att öppna mappaen som du tidigare valt i Git Bash och sedan klonar du Glantz till den valda mappen från Github med koden nedan:
+2. För att kunna klona ramverket så börjar du med att skapa en mapp där ramverket ska läggas. Öppna sedan mappaen med Git Bash och sedan klonar du Glantz till den valda mappen från Github med koden nedan:
 	
 	`git clone git://github.com/rattanaprasith/glantz.git`
 
@@ -22,10 +22,10 @@ Installation av Glantz
 	
 Nu har data-mappen i site-katalogen.
 
-4. Sedan ska du göra så att `site/data` blir skrivbar. Detta gör du genom att öppna den valda mappen i Git Bash och skriva med hjälp av dessa kommandon `cd glantz; chmod 777 site/data`. I vissa fall, om man har lokala filer och sedan lägger upp dessa till en extern server så kan man behöva ändra chmod på servern manuellt. För att lägga upp filer till en server så kan man använda programmet Filezilla, sedan via en sftp-server gör du en chmod 777 på data-mappen genom att högerklicka på mappen och änra filrättigheter.
+4. Sedan ska du göra så att `site/data` blir skrivbar. Detta gör du genom att öppna den valda mappen i Git Bash och skriva med hjälp av dessa kommandon `cd glantz; chmod 777 site/data`. I vissa fall, om man har lokala filer och sedan lägger upp dessa till en extern server så kan man behöva ändra chmod på servern manuellt. För att lägga upp filer till en server så kan man använda programmet Filezilla, sedan via en sftp-server gör du en chmod 777 på data-mappen genom att högerklicka på mappen och ändra filrättigheter.
 
-5. Sedan måste du ändra i .htaccess fil för att hela siten ska fungera. Öppna filen i en filredigerare, till exempel Dreamweaver eller jEdit. Det du behöver ändra i filen är RewriteBase då behöver du ändra den till där mappen ligger på din server eller i dina lokala filer.
-Så här kan det se ut `RewriteBase /~rapr13/phpmvc/kmom08/glantz`
+5. För att hela siten ska fungera måste du även ändra i .htaccess fil. Detta gör du genom att öppna filen i en filredigerare, till exempel Dreamweaver eller jEdit, och det du behöver ändra i filen är RewriteBase. Du ska ändra den till där mappen ligger på din server eller i dina lokala filer.
+Så här kan RewriteBase se ut: `RewriteBase /~rapr13/phpmvc/kmom08/glantz`
 
 4. Det sista som måste göras är att initiera modulerna. Det gör du via `module/install`. Då skapas automatiskt två användare: root:root samt doe:doe. Även gästbokens databastabeller initieras via detta kommando.
 
@@ -61,10 +61,10 @@ Alla inställningar som har med temat att göra, hittar du i `site/config.php`. 
 			),
 			);
 
-* Arrayen `$gl->config['theme']` håller reda på alla inställingar. Tanken med Glantz är att man kan göra ett tema i site-katalogen och ärva ett befintligt tema från Glantz's standard-tema.
-I det här fallet i site/themes-katalog så har vi det nya temat, `site/themes/newtheme` som ärver från förälder-temat, Glantz's new-tema i themes-katalog, `themes/new`. Vill du ändra layouten på ramverket kan du göra genom att ändra stylesheet i site/themes-katalogen.
-Öppnar `site/themes/newtheme/style.css` i en filredigerare, till exempel Dreamweaver eller jEdit, för att ändra färg på bakgrund, html, storlek på texten och m.m. Ramverkets grund hittar du i `glantz/themes/new/style.css`.
-Om du vill skapa egna teman så kan du göra genom att skapa en ny mapp i `site/themes/NamnetPåDetNyaTemat`, till exempel `site/themes/newtheme`. Sedan skapar du en stylesheet i mappen. Viktigt är att importera grund temat (det som ska ärvas) och skriva: @import url(../../../themes/new/style.css); längst upp i dokumentet. Så här ser det ut i `site/themes/newtheme/style.css` :
+* Arrayen `$gl->config['theme']` håller reda på alla inställingar. Tanken med ramverket är att man kan göra ett tema i site-katalogen och låta den ärva från ramverkets grundtema.
+I det här fallet så är "newtheme" det valda temat som ärver från Glantz's grundtema i themes-katalog, dvs. `themes/new`. Vill du ändra layouten på ramverket så kan du ändra stylesheet i `site/themes/newtheme/style.css`. 
+Detta gör du genom att öppna stylesheet i en filredigerare, till exempel Dreamweaver eller jEdit, där kan du ändra färg på bakgrund, html, storlek på texten och m.m. Ramverkets grundtema hittar du i `glantz/themes/new/style.css` om du vill ändra något extra.
+Om du vill skapa egna teman så kan du göra genom att skapa en ny mapp i "site/themes-katalogen" där börjar du och skapa stylesheet för det nya temat i mappen. Viktigt är att du ska även importera grundtemat (det som ska ärvas) och skriva: @import url(../../../themes/new/style.css); längst upp i dokumentet. Så här ser det ut i `site/themes/newtheme/style.css` :
 
 			/** 
 			* Description: Sample theme for site which extends the Morris grid-theme.
@@ -79,7 +79,7 @@ Om du vill skapa egna teman så kan du göra genom att skapa en ny mapp i `site/
 			#navbar ul.menu li a.selected{background-color:#FFFFFF;border-bottom:none;}
 
 
-Kopiera även template-filen för ditt tema, dvs. index.tpl.php, som är en vy för att visa själva temat hur det är uppbyggt, och klistra in den sedan i din valda tema-mappen. Sökvägen till ditt nya temat ska även ändras i config.php i arrayen `$gl->config['theme']. Sökvägen till ramverkets grund tema map ändrar du i `'parent' => 'themes/new'` och sökvägen till din nyskapade tema map ändrar du i `'path' => 'site/themes/newtheme'` .
+Kopiera även template-filen för ditt tema, dvs. index.tpl.php och klistra in den i din valda tema-mappen. Sökvägen till ditt nya temat ska också ändras. Detta kan du göra genom att ändra i config.php i arrayen `$gl->config['theme']` där ska du ange namnet på din nyskapade tema-mapp. 'parent' är sökvägen till ramverkets grundtema-mapp och 'path' är sökvägen till den valda tema-mappen. 
 
 * För att ändra loga kan du göra genom att ändra din logotyp i `'logo' => 'logo_rose.jpg',` . Logotypen ska läggas till ditt valda tema i site-katalogen, till exempel `site/themes/newtheme/logo_rose.jpg`. Du kan även ändra på "logo_width" och "logo_height" så att värdet stämmer med pixel antalet på den nya loggan.
 
@@ -116,15 +116,15 @@ Skapa en blogg
 
 När du öppnar ramverket i browsern så följer 5 menyalternativ. Gå in till content-sidan där du kan skapa ett blogginlägg genom att klicka på nedan länken "Create new content". Eller du kan även gå direkt till kontrollen `content/create`. Du ska fylla i titel, key, content, type och filter och här kommer en kort förklaring till vad dessa innebär:
 	
-	* Title: Rubrik på blogginlägg
+* Title: Rubrik på blogginlägg
 	
-	* Key: är ett unikt värdet för innehållet (använd till att spara en textsträng som matchar artikeln). Alltså detta kommer att fungera som en intern nyckel till ditt innehåll. Du kan inte ha mellanslag mellan orden. Använd i följande sätt: my_new_content eller my-new-content.
+* Key: är ett unikt värdet för innehållet (använd till att spara en textsträng som matchar artikeln). Alltså detta kommer att fungera som en intern nyckel till ditt innehåll. Du kan inte ha mellanslag mellan orden. Använd i följande sätt: my_new_content eller my-new-content.
 	
-	* Content: Själva innehållet 
+* Content: Själva innehållet 
 	
-	* Type: Ett fält som bestämmer vilken typ av innehållet. I detta fall så "Type" måste satt till post.
+* Type: Ett fält som bestämmer vilken typ av innehållet. I detta fall så "Type" måste satt till post.
 	
-	* Filter: Anger vilket filtering/formattering som skall användas. "Filter" ska vara plain om du bara skriver vanlig text. Andra alternativ är bbcode, makeClickable och htmlpurify. 
+* Filter: Anger vilket filtering/formattering som skall användas. "Filter" ska vara plain om du bara skriver vanlig text. Andra alternativ är bbcode, makeClickable och htmlpurify. 
 
 
 
@@ -147,7 +147,7 @@ För att skapa en sida på webbplatsen så behöver du redigera tre filer: CCMyc
 			}
 			
 För att börja skapa en nya sida så kan göra genom att kopiera och klistra in denna function. Det som behöver ändras är namnet på functionen ("public function index()" till "public function myWork()"), numret i $content = new CMContent(5) , titeln "About me" samt template filen "page.tpl.php".
-Rubriken "The page about me" är inte nödvändig för att koden ska fungera, utan för att hålla ordning på innehållet och dokumentationen. Låt säga att du vill skapa en ny sida som visar upp allt ditt arbete, då börjar du och ta bort numret i "$content = new CMContent(5)" och ändra till "$content = new CMContent()". Ändra sedan titeln till "SetTitle('Mitt jobb'.htmlEnt($content['title']))", template-filen till "(__DIR__ . '/mittjobb.tpl.php)" och även rubriken ändras till "The page about my work" .
+Rubriken "The page about me" är inte nödvändig för att koden ska fungera, utan för att hålla ordning på innehållet och dokumentationen. Låt säga att du vill skapa en ny sida som visar upp allt ditt arbete, då börjar du och ta bort numret i "$content = new CMContent(5)" och ändra till "$content = new CMContent()". Ändra sedan titeln till  "SetTitle('Mitt jobb'.htmlEnt($content['title']))",  template-filen till "(__DIR__ . '/mittjobb.tpl.php)" och även rubriken ändras till  "The page about my work" .
 	
 			/**
 			* The page about my work

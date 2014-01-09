@@ -2,12 +2,12 @@
 
 
 <h2>About</h2>
-<p><strong>Module Manager</strong> displays information on modules and enable managing of all Lydia modules. Lydia is made up of modules. Each module
+<p><strong>Module Manager</strong> displays information on modules and enable managing of all Glantz modules. Glantz is made up of modules. Each module
 has its own subdirectory in the <code>src</code>-directory.</p>
 
 <h2>Manage Glantz modules</h2>
 <p>A module can implement the interface <code>IModule</code>
-which makes it a manageable module. Lydia provides a administrating interface for these
+which makes it a manageable module. Glantz provides a administrating interface for these
 modules. You can perform the following actions through this interface:</p>
 
 <ul>
