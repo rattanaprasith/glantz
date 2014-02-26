@@ -14,7 +14,7 @@
 <p>Glantz core modules.</p>
 <ul>
 <?php foreach($modules as $module): ?>
-  <?php if($module['isLydiaCore']): ?>
+  <?php if($module['isGlantzCore']): ?>
   <li><?=$module['name']?></li>
   <?php endif; ?>
 <?php endforeach; ?>
@@ -27,7 +27,7 @@
 <p>Glantz Content Management Framework (CMF) modules.</p>
 <ul>
 <?php foreach($modules as $module): ?>
-  <?php if($module['isLydiaCMF']): ?>
+  <?php if($module['isGlantzCMF']): ?>
   <li><?=$module['name']?></li>
   <?php endif; ?>
 <?php endforeach; ?>
@@ -79,7 +79,7 @@
 <p>Modules that does not implement any specific Glantz interface.</p>
 <ul>
 <?php foreach($modules as $module): ?>
-  <?php if(!($module['isController'] || $module['isLydiaCore'] || $module['isLydiaCMF'])): ?>
+  <?php if(!($module['isController'] || $module['isGlantzCore'] || $module['isGlantzCMF'])): ?>
   <li><?=$module['name']?></li>
   <?php endif; ?>
 <?php endforeach; ?>
